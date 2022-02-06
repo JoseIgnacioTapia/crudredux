@@ -29,6 +29,11 @@
       "nombre": "reed",
       "precio": 200,
       "id": 6
+    },
+    {
+      "nombre": "lukather",
+      "precio": 100,
+      "id": 7
     }
   ]
 }
