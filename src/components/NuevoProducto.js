@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 // Actions de Redux
 import { crearNuevoProductoAction } from '../actions/productoActions';
@@ -14,6 +15,8 @@ const NuevoProducto = () => {
   // Acceder al state del store
   const cargando = useSelector(state => state.productos.loading);
   const error = useSelector(state => state.productos.error);
+
+  let navigate = useNavigate();
 
   // Mandar llamar el action de productoAction
   const agregarProducto = producto =>
@@ -35,6 +38,9 @@ const NuevoProducto = () => {
       nombre,
       precio,
     });
+
+    // Redireccionar
+    navigate('/');
   };
 
   return (
