@@ -21,7 +21,7 @@ const EditarProducto = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Nombre Producto</label>
+                <label>Precio Producto</label>
                 <input
                   type="number"
                   className="form-control"
