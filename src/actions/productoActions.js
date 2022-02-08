@@ -96,7 +96,17 @@ export function borrarProductoAction(id) {
     try {
       const resultado = await clienteAxios.delete(`/productos/${id}`);
       dispatch(eliminarProductoExito());
-    } catch (error) {}
+
+      // Si se elimina, mostrar alerta
+      Swal.fire(
+        'Eliminado!',
+        'El producto se elimino correctamente.',
+        'success'
+      );
+    } catch (error) {
+      console.log(error);
+      dispatch(eliminarProductoError());
+    }
   };
 }
 
