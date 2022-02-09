@@ -1,11 +1,29 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editarProductoAction } from '../actions/productoActions';
 
 const EditarProducto = () => {
+  // nuevo state del producto
+  const [producto, setProducto] = useState({
+    nombre: '',
+    precio: '',
+  });
+
   // Producto a editar
-  const producto = useSelector(state => state.productos.productoeditar);
-  if (!producto) return null;
+  const productoEditar = useSelector(state => state.productos.productoeditar);
+
+  // Llenar el state automatiamente
+  useEffect(() => {
+    setProducto(productoEditar);
+  }, [productoEditar]);
+
+  // Leer los datos del formulario
+  const onChangeFormulario = e => {
+    setProducto({
+      ...producto,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const { nombre, precio, id } = producto;
 
@@ -33,6 +51,7 @@ const EditarProducto = () => {
                   placeholder="Nombre Producto"
                   name="nombre"
                   value={nombre}
+                  onChange={onChangeFormulario}
                 />
               </div>
               <div className="form-group">
@@ -43,6 +62,7 @@ const EditarProducto = () => {
                   placeholder="Precio Producto"
                   name="precio"
                   value={precio}
+                  onChange={onChangeFormulario}
                 />
               </div>
 
