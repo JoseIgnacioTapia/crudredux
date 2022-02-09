@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 
 // Actions de Redux
 import { crearNuevoProductoAction } from '../actions/productoActions';
-import { mostrarAlerta } from '../actions/alertaActions';
+import { mostrarAlerta, ocultarAlertaAction } from '../actions/alertaActions';
 
 const NuevoProducto = () => {
   const [nombre, setNombre] = useState('');
@@ -40,6 +40,7 @@ const NuevoProducto = () => {
     }
 
     // Si no hay errores
+    dispatch(ocultarAlertaAction());
 
     // Crear en nuevo producto
     agregarProducto({
