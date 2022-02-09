@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editarProductoAction } from '../actions/productoActions';
+import { useNavigate } from 'react-router-dom';
 
 const EditarProducto = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   // nuevo state del producto
   const [producto, setProducto] = useState({
     nombre: '',
@@ -25,12 +29,14 @@ const EditarProducto = () => {
     });
   };
 
-  const { nombre, precio, id } = producto;
+  const { nombre, precio } = producto;
 
   const submitEditarProducto = e => {
     e.preventDefault();
 
-    editarProductoAction();
+    dispatch(editarProductoAction(producto));
+
+    navigate('/');
   };
 
   return (

@@ -2,12 +2,12 @@
   "productos": [
     {
       "nombre": "Jugo de Naranja",
-      "precio": "300",
+      "precio": "200",
       "id": 3
     },
     {
       "nombre": "Rib Eye 800g",
-      "precio": "200",
+      "precio": "340",
       "id": 4
     },
     {
@@ -17,12 +17,12 @@
     },
     {
       "nombre": "reed",
-      "precio": 200,
+      "precio": "275",
       "id": 6
     },
     {
       "nombre": "lukather",
-      "precio": 100,
+      "precio": "100",
       "id": 7
     }
   ]
